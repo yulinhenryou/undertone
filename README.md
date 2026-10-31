@@ -62,9 +62,9 @@ The design comes first (the moment, four positions, the rule, the screen, the ro
 
 ## What was tested, and what wasn’t
 
-Three think-aloud sessions on a laptop, with a mouse wheel standing in for the side wheel. All three participants could explain why joining a solo song was closed; two of three joined without help; one mouse scroll skipped a level. Four labels changed after testing, and in a follow-up one participant who had seen the earlier version found the revised flow clearer. The participants were friends of mine, so their comments may lean kind.
+Three think-aloud sessions using the Figma player on a laptop: P1 and P2 on 21 October 2026, and P3 on 22 October. These sessions tested the course prototype, not the browser demo published here. All three participants could explain why joining a solo song was closed; two of three joined without help; one mouse scroll skipped a level. Four labels changed after testing. Pierre Pan’s later peer review asked for fewer screens and a clearer report; it was not another usability test. The participants were friends of mine, so their comments may lean kind.
 
-**Duet and the stage light were added after testing and are not yet tested.** Still open: how loud each level sounds to others, real wheel steps on a watch, whether friends recognise a voice, separating neighbouring voices, whether Duet should need the lead’s OK, and VoiceOver on a real watch. The desktop test shows the interface is understood, not that joining feels safer; that needs a real watch in a real karaoke room.
+**The current wheel-controlled Duet and stage light are post-test additions and are not yet tested.** Still open: how loud each level sounds to others, real wheel steps on a watch, whether friends recognise a voice, separating neighbouring voices, whether Duet should need the lead’s OK, and VoiceOver on a real watch. The desktop test shows the interface is understood, not that joining feels safer; that needs a real watch in a real karaoke room.
 
 ## Process notes
 
@@ -101,9 +101,9 @@ python src/build.py            # or: pdf · film · screens · images
 
 ## Credits and notes
 
-- **Design and research** by Henry Ou. Test participants are anonymised as P1–P3; their quotes are translated from Chinese.
-- **Tools and AI.** The design is mine. I used Claude (Anthropic) for critique, editing, and building the site, the film and the prototype to my direction; Codex (OpenAI) for design reviews and early prototype code; and Figma’s AI image generation for one karaoke scene (shown colour-graded). Every design decision, and every claim about testing, is mine.
-- **Images.** The photographic karaoke scene is AI-generated and the people in it are not real. The sketch sheets were drawn by hand on an iPad from AI reference layouts.
+- **Design and research.** Undertone is my original design, developed from an idea I began exploring during A2. I designed the flows, interfaces, copy and design system; drew the sketches; made the scope and design decisions; conducted reviews and real participant tests; and developed and checked the design, Figma file, report and appendix. Test participants are anonymised as P1–P3.
+- **Tools and AI.** I used ChatGPT (OpenAI) for language editing and proofreading, some appendix formatting, and organising peer-feedback and participant records. Claude (Anthropic) was used to critique my own design, as documented in the process notes. Following my tutor’s seminar guidance, I used Figma AI to generate two karaoke-room scenes to explain the setting; one is shown here, colour-graded. I evaluated the feedback and retained responsibility for every design decision.
+- **Images.** The photographic karaoke scene is AI-generated and the people in it are not real. The sketch sheets are my own hand-drawn design explorations.
 - **Device frames** are drawn in SVG, not Apple product images. Apple Watch, watchOS and Digital Crown are trademarks of Apple Inc. This is an independent concept, not affiliated with Apple.
 - **Type:** Geist, Geist Mono and Instrument Serif; Inter on the watch screens, standing in for SF Compact. All under the SIL Open Font License ([licences](docs/assets/fonts)).
 - **Song and lyrics** in the prototype (“Lantern Tide”) are original.

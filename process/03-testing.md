@@ -2,7 +2,7 @@
 
 ## Plan and participants
 
-I planned five first-year international students who rarely sing at karaoke, following Nielsen’s guidance on small discount tests, and ran three think-aloud sessions on a laptop prototype, with a mouse wheel standing in for the side wheel.
+I conducted three think-aloud sessions with real participants using the Figma player on a laptop. P1 and P2 took part on 21 October 2026; P3 on 22 October. The notes record their actual actions and feedback. The current browser demo was developed later and was not the prototype used in these sessions.
 
 All three participants are international students (two first-year, one second-year) and friends of mine who took part voluntarily, so their comments may lean positive.
 
@@ -16,7 +16,7 @@ All three participants are international students (two first-year, one second-ye
 
 A task counts as done without help only if the participant reached the right state, or explained it, without a hint. I planned to ask the single ease question after each task (1 = very difficult, 7 = very easy); only P1’s and P2’s ratings for T5 were recorded.
 
-The tested build used earlier wording (“Join quietly”, “Turn the crown to join”, “Too loud near you”). That build was not kept separately; the [live prototype](../docs/index.html) is the revised version.
+The tested build used “Join quietly”, “Turn the crown to join” and “Too loud near you”. It also retained the tip screen, Step forward and Name hidden wording. The exact tested build has not been identified; the [live browser prototype](https://yulinhenryou.github.io/undertone/play/) is a later version. References to scrolling below preserve the session notes and do not describe real Digital Crown testing.
 
 ## Tasks
 
@@ -34,7 +34,7 @@ Scenario read before the first task (the names were part of the script): *“It�
 
 ## What happened
 
-Notes are mine; quotations are translated from Chinese.
+These are my observation notes and the participants’ reported comments.
 
 ### P1
 
@@ -86,11 +86,11 @@ Least clear: “Turn the crown”. Asked for an illustration for newcomers. Prio
 \* One scroll skipped a level; he corrected it himself. † Had seen screenshots before. ‡ After the T2 hint.
 
 - **All three** could explain why joining a solo song was closed.
-- **Two of three** joined without any help (target for five people: four of five).
-- **One** unintended increase (target: none).
-- **Two** exits confirmed, one not recorded (target: four of five).
+- **Two of three** joined without any help.
+- **One** unintended increase was observed and self-corrected.
+- **Two** exits confirmed; P3 tapped the exit button, but the resulting state was not recorded.
 
-Three people cannot pass or fail these targets, but the pattern was clear: people understood the levels and the solo rule, and stumbled over words.
+The sessions suggested that participants understood the levels and solo rule, while some labels and controls needed clarification.
 
 ## What I changed
 
@@ -103,7 +103,7 @@ I changed the labels first and kept the levels, the wheel and the seat map, leav
 | Turn the crown to join | **Turn wheel to join**, with how to stop underneath | P3 did not know the word; P1 skipped the tip |
 | Too loud near you | **Room noise is high** | P1 took it as blame |
 
-**Follow-up.** P3 later tried the revised prototype and said it was much clearer, and that he could follow the whole flow without explanation. Task-by-task results were not recorded, and because he had used the earlier version, it is not a first impression. A retest with someone new remains the stronger check.
+**Peer review, 23 October.** Pierre Pan (P3) reviewed the prototype, draft report and Figma file. He found the number of screens and functions difficult to understand before explanation, and asked for fewer features, larger report text and a clearer focus. I used this feedback to simplify the presentation and flow. This was a separate critique, not a repeat usability test.
 
 **Not changed.** P2’s mouse skipped a level, but a mouse wheel says little about a real watch wheel, so the steps stay as they are until they can be tried on a watch.
 

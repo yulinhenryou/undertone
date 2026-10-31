@@ -10,7 +10,7 @@
 - Nielsen, J. (1994, April 24). 10 usability heuristics for user interface design. *Nielsen Norman Group*. https://www.nngroup.com/articles/ten-usability-heuristics/
 - Nielsen, J. (2000, March 18). Why you only need to test with 5 users. *Nielsen Norman Group*. https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/
 - Norman, D. A. (2013). *The design of everyday things* (Rev. and expanded ed.). Basic Books.
-- OpenAI. (n.d.). *Codex* [AI coding assistant]. https://openai.com/codex/
+- OpenAI. (n.d.). *ChatGPT* [Large language model]. https://chatgpt.com
 - Shure. (2026). *MXA920 ceiling array microphone* (Version 1.9) [User guide]. https://pubs.shure.com/view/guide/MXA920/en-US.pdf
 - Vitsœ. (n.d.). Good design. https://www.vitsoe.com/us/about/good-design
 - World Wide Web Consortium. (2023). *Web Content Accessibility Guidelines (WCAG) 2.2*. https://www.w3.org/TR/2023/REC-WCAG22-20231005/

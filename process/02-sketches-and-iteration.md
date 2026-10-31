@@ -22,14 +22,14 @@ Some ideas never reached a sheet: the lead inviting someone by name, the volume 
 | **v1.1** | From self-critique and an AI heuristic review. watchOS reserves the side-button press, so stepping forward became an on-screen tap. With the wrist down, turning up only wakes the screen. A one-time tip explained how to leave. | [flow-v1.1.png](../design/flows/flow-v1.1.png) |
 | **v1.2** | The lead can keep a song solo. Turning down became the main way out, and a Mic off button gave a touch alternative to the wheel. | [flow-v1.2-v1.3.png](../design/flows/flow-v1.2-v1.3.png) |
 | **v1.3** | Rebuilt on native watch patterns: a navigation bar, one state word, a level indicator beside the wheel and a bottom button. Lyrics moved to the room screen. | same as v1.2 |
-| **Tested** | Peer feedback showed the extras competed with the main task. The named duet, public naming and the tip screen were removed; the guidance moved onto Listening. Three levels: Listening, Undertone, Harmony. | see [testing](03-testing.md) |
-| **Now** | Four labels changed after testing (see [testing](03-testing.md)). The duet returned as an anonymous top step, **Duet**, level with the lead and never above it, and the screen gained a stage light that warms with your level. These two additions are **not yet tested**. | live in the [prototype](../docs/play/) |
+| **Tested · 21–22 October** | The Figma-player sessions focused on Listening, Undertone and Harmony. The tested version still contained the tip screen, Step forward and Name hidden wording, as recorded in the observations. | see [testing](03-testing.md) |
+| **After testing → now** | Peer feedback informed a simpler flow: public naming and the tip screen were removed, and four labels were clarified. In the portfolio version, **Duet** returns as a wheel-controlled top step without public naming, alongside a stage light. These additions are **not yet tested**. | live in the [prototype](https://yulinhenryou.github.io/undertone/play/) |
 
 Screens from earlier versions are in [`design/screens/history`](../design/screens/history).
 
 ## Why Duet came back
 
-In testing, one participant reached Harmony and tried one more turn, and the level bar already had a third segment that only the cut duet had ever used. The old duet failed because it **named** you and needed a confirmation. The new Duet keeps what was good about it, a place beside the lead, and drops what wasn’t: there is no name, no prompt, and you reach it one turn at a time like every other level. It sits at the lead’s level and never above, and room noise still drops it to Undertone. Whether the lead should be able to close Duet but leave the softer levels open is an open question.
+In testing, one participant reached Harmony and tried one more turn, and the level bar already had a third segment that only the cut duet had ever used. I removed the old duet’s **public naming** and confirmation to keep the flow focused on participation. The new Duet keeps what was good about it, a place beside the lead, and drops what wasn’t: there is no name, no prompt, and you reach it one turn at a time like every other level. It sits at the lead’s level and never above, and room noise still drops it to Undertone. Whether the lead should be able to close Duet but leave the softer levels open is an open question.
 
 ## What changed it
 
@@ -66,7 +66,7 @@ I asked Claude to review v1.0 against Nielsen’s ten usability heuristics and A
 | Let the lead accept a duet mid-song | Rejected | She cannot act while singing, and her “no” would be public |
 | Show how many people are singing along | Rejected | A number invites comparison |
 
-Later design reviews with Codex raised further points: “cover with your palm to leave” could not be promised; the lead is a stakeholder whose song should stay hers; warnings must never cover the level; leaving needed a touch alternative; and some claims ran ahead of the evidence. Each led to a change, and claims were rewritten to match what was actually tested.
+Later revisions clarified the exit gesture, kept warnings separate from the current level, and added a touch alternative. I also distinguished observed test results from design assumptions. ChatGPT helped edit and proofread the wording and organise feedback records; the design decisions remained mine.
 
 ### Feedback I declined
 
