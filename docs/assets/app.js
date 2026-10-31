@@ -214,8 +214,9 @@
   watchEl.addEventListener('touchmove', e => { if (ty === null) return; const d = e.touches[0].clientY - ty; if (Math.abs(d) > 34) { e.preventDefault(); d < 0 ? up() : down(); ty = e.touches[0].clientY; } }, { passive: false });
   watchEl.addEventListener('touchend', () => ty = null);
   document.addEventListener('keydown', e => {
-    if (e.target.closest('input,textarea')) return;
-    if ((e.key === 'Enter' || e.key === ' ') && e.target.closest('button,a')) return;   // let focused controls handle their own keys
+    const t = e.target instanceof Element ? e.target : document.body;
+    if (t.closest('input,textarea')) return;
+    if ((e.key === 'Enter' || e.key === ' ') && t.closest('button,a')) return;   // let focused controls handle their own keys
     const k = e.key.toLowerCase();
     if (k === 'arrowup') { e.preventDefault(); up(); } else if (k === 'arrowdown') { e.preventDefault(); down(); }
     else if (k === 'n') scen.noise(); else if (k === 's') scen.solo(); else if (k === 'l') scen.lost(); else if (k === 'w') scen.wrist(); else if (k === 'e') scen.end(); else if (k === 't') scen.touch();
