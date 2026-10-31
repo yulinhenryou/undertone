@@ -1,0 +1,25 @@
+/* Undertone · shared site shell.
+   Colours are variables, so any block can switch theme: dark is the default, .lt is light paper. */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --amber:#FFB547;--orange:#F08A12;--coral:#FF8F5A;--rose:#F2557F;--violet:#8A6CF0;--sky:#8EC5F5;
+  --lv:#8EC5F5;--li:0;
+  --sans:'Geist',Inter,system-ui,sans-serif;--serif:'Instrument Serif',Georgia,serif;--mono:'Geist Mono',ui-monospace,monospace;
+  --bg:#0B0A0E;--card:#17151C;--ink:#F5F2EC;--ink2:#C4BFCA;--ink3:#8C8794;--line:rgba(245,242,236,.1);--chip:#201D25;--chip2:#29262F;--hi:#FFB547}
+.lt{--bg:#F4F1EA;--card:#FFFFFF;--ink:#16141A;--ink2:#4A4650;--ink3:#7E7885;--line:rgba(22,20,26,.11);--chip:#ECE8E0;--chip2:#E3DED4;--hi:#E07B00}
+html{background:#0B0A0E}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit}
+.mono{font:500 12px/1.3 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--ink3)}
+.ser{font-family:var(--serif);font-weight:400;font-style:italic;letter-spacing:-.01em}
+.top{position:relative;z-index:5;display:flex;justify-content:space-between;align-items:center;max-width:1440px;margin:0 auto;padding:20px 40px;color:var(--ink)}
+.brand{display:flex;align-items:center;gap:10px;font:620 18px/1 var(--sans);letter-spacing:-.03em;text-decoration:none}
+.brand i{width:20px;height:20px;border-radius:50%;background:radial-gradient(circle,var(--amber) 0 32%,transparent 34%),radial-gradient(circle,transparent 0 58%,var(--ink) 60% 100%)}
+.top nav{display:flex;gap:4px}
+.top nav a{font:520 14px/1 var(--sans);text-decoration:none;padding:10px 14px;border-radius:999px;color:var(--ink2);transition:background .2s,color .2s}
+.top nav a:hover{background:color-mix(in srgb,var(--ink) 7%,transparent);color:var(--ink)}
+.top nav a.act{background:var(--ink);color:var(--bg)}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;max-width:1440px;margin:0 auto;padding:28px 40px 44px;font:450 14px/1.4 var(--sans);color:var(--ink3);border-top:1px solid var(--line)}
+.foot a{color:var(--ink);text-decoration:none;font-weight:550}
+:focus-visible{outline:2px solid var(--hi);outline-offset:3px}
+@media (max-width:560px){.top{padding:14px 16px}.brand{font-size:16px}.top nav a{padding:8px 9px;font-size:13px}.foot{padding:22px 16px 34px}}

@@ -1,0 +1,29 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../docs/assets/fonts.css">
+<link rel="stylesheet" href="../../docs/assets/site.css">
+<style>
+html,body{margin:0}
+.og{position:relative;width:1200px;height:630px;overflow:hidden;background:#F4F1EA;color:#16141A}
+.og .b{position:absolute;border-radius:50%;filter:blur(90px);opacity:.32}
+.og h1{position:absolute;left:66px;top:244px;font-size:106px;line-height:1;letter-spacing:-.055em}
+.og p{position:absolute;left:72px;top:160px;font:400 40px/1.05 'Instrument Serif';font-style:italic}
+.og small{position:absolute;left:72px;top:420px;width:470px;font:400 20px/1.45 Geist;color:#4A4650}
+.og .e{position:absolute;left:72px;top:72px;font:500 14px/1 'Geist Mono';letter-spacing:.08em;text-transform:uppercase;color:#7E7885;display:flex;gap:12px;align-items:center}
+.og .e i{width:18px;height:18px;border-radius:50%;background:radial-gradient(circle,#FFB547 0 30%,#16141A 32%)}
+.og .w{position:absolute;filter:drop-shadow(0 24px 34px rgba(40,20,60,.2))}
+</style></head><body>
+<div class="og">
+  <div class="b" style="width:520px;height:440px;left:-200px;top:-220px;background:#FFC069;opacity:.5"></div>
+  <div class="b" style="width:620px;height:520px;left:620px;top:60px;background:#FFB27A;opacity:.55"></div>
+  <div class="b" style="width:560px;height:460px;right:-160px;bottom:-260px;background:#F7A8C4;opacity:.5"></div>
+  <div class="e"><i></i>Interface design · Apple Watch</div>
+  <h1 id="t">Undertone</h1>
+  <p>Join the chorus, <span style="color:#E07B00">a little at a time.</span></p>
+  <small>Sing along at karaoke without taking the mic. Four positions on one wheel, and only you can turn yourself up.</small>
+  <div class="w" data-s="undertone" data-device="1" data-light="1" data-band="#FFB547" data-x="l" style="--w:150px;left:656px;top:216px;transform:rotate(-7deg)"></div>
+  <div class="w" data-s="duet" data-device="1" data-light="1" data-band="#F2557F" data-x="r" style="--w:150px;left:1026px;top:216px;transform:rotate(7deg);z-index:2"></div>
+  <div class="w" data-s="harmony" data-device="1" data-light="1" data-band="#FF8F5A" style="--w:186px;left:836px;top:172px"></div>
+</div>
+<script src="../../docs/assets/watchkit.js"></script>
+<script>const t=document.getElementById("t"),c=[...t.textContent];t.innerHTML=c.map((ch,i)=>`<span style="font-family:Geist;font-weight:${Math.round(160+720*i/(c.length-1))}">${ch}</span>`).join("")</script>
+</body></html>

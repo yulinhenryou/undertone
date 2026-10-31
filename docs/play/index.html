@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Play · Undertone</title>
+<meta name="description" content="Play the Undertone prototype: an Apple Watch interface for joining a karaoke song a little at a time.">
+<meta name="author" content="Henry Ou">
+<meta property="og:title" content="Play · Undertone">
+<meta property="og:description" content="Turn the side wheel and join the chorus, a little at a time.">
+<meta property="og:image" content="https://yulinhenryou.github.io/undertone/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%2316141A'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23FFB547'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+/* one screen: header + a three-column stage that fits the viewport height */
+html{background:#F4F1EA}
+body{background:
+  radial-gradient(52vw 62vh at 50% 46%,color-mix(in srgb,var(--lv) calc(var(--li)*100%),transparent),transparent 72%),
+  radial-gradient(40vw 40vh at 4% 0%,rgba(255,196,107,.18),transparent 70%),
+  radial-gradient(40vw 46vh at 100% 100%,rgba(176,156,255,.16),transparent 70%),var(--bg);transition:background .8s}
+.top{padding:16px 32px}
+.play{--ww:clamp(160px,calc((100vh - 350px) * .5),262px);
+  display:grid;grid-template-columns:minmax(290px,316px) minmax(0,1fr) minmax(300px,340px);gap:28px;
+  max-width:1440px;margin:0 auto;padding:4px 32px 22px;height:calc(100vh - 72px);min-height:600px}
+.play>section{min-height:0}
+
+/* left: intro + checklist */
+.intro{display:flex;flex-direction:column;padding-top:clamp(4px,2vh,22px)}
+.intro h1{font:600 clamp(30px,4.6vh,40px)/1.04 var(--sans);letter-spacing:-.045em;margin:12px 0 12px}
+.intro h1 .ser{display:block;font-size:1.14em;color:var(--hi);line-height:.98}
+.intro p.lead{font:400 15px/1.55 var(--sans);color:var(--ink2)}
+.goals{margin-top:clamp(14px,2.4vh,26px);padding:18px 20px 16px;border-radius:20px;background:var(--card);box-shadow:0 1px 0 rgba(0,0,0,.03),0 14px 36px rgba(40,20,60,.07)}
+.goals ol{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:12px}
+.goals li{display:flex;gap:11px;align-items:center;font:450 14.5px/1.3 var(--sans);color:var(--ink3);transition:color .3s}
+.goals li i{flex:none;width:19px;height:19px;border-radius:50%;box-shadow:inset 0 0 0 1.5px #CFC8BE;display:grid;place-items:center;transition:all .35s cubic-bezier(.3,1.6,.5,1)}
+.goals li.done{color:var(--ink)}
+.goals li.done i{box-shadow:none;background:var(--ink);transform:scale(1.06)}
+.goals li.done i::after{content:"";width:8px;height:4.5px;border:2.2px solid var(--amber);border-top:0;border-right:0;transform:translateY(-1px) rotate(-45deg)}
+.goals small{display:block;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font:400 12.5px/1.55 var(--sans);color:var(--ink3)}
+kbd{font:500 11px/1 var(--mono);padding:3px 5px;border-radius:5px;background:var(--chip);color:var(--ink2)}
+.done-all{margin-top:auto;padding-top:14px;font:400 12.5px/1.5 var(--sans);color:var(--ink3)}
+.done-all a{color:var(--ink);font-weight:550;text-decoration:none;border-bottom:1px solid var(--line)}
+
+/* centre: watch, explanation, room controls */
+.stage{display:flex;flex-direction:column;align-items:center;justify-content:space-between;position:relative}
+.wwrap{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;width:100%}
+#watch{--w:var(--ww);margin:calc(var(--w)*.42) 0 calc(var(--w)*.46);touch-action:none;user-select:none;-webkit-user-select:none;filter:drop-shadow(0 30px 50px rgba(40,20,60,.22))}
+#watch .wk-scr.asleep > *:not(.wk-plat){opacity:.28;transition:opacity .4s}
+#watch button{all:unset;box-sizing:border-box;cursor:pointer}
+#watch .wk-btn{position:absolute;left:10px;width:168px;height:40px;border-radius:20px;background:#2C2C2E;display:flex;align-items:center;justify-content:center;font:600 16px/1 Inter;color:#fff}
+#watch .wk-btn.pri{background:#FFB547;color:#000}
+#watch .wk-btn:active,#watch .wk-off:active,#watch .wk-tc button:active{transform:scale(.96)}
+#watch .wk-off{position:absolute;left:10px;top:194px;height:40px;width:111px;border-radius:20px;background:#2C2C2E;display:flex;align-items:center;font:600 14px/1 Inter;color:#fff}
+#watch .wk-tc{position:absolute;left:10px;width:178px;display:flex;gap:6px}
+#watch .wk-tc button{flex:1;height:40px;border-radius:20px;background:#2C2C2E;display:flex;align-items:center;justify-content:center;font:600 15px/1 Inter;color:#fff}
+#watch .wk-tc button[disabled]{opacity:.35;cursor:default}
+#watch .wk-face .cp{position:absolute;left:31px;top:182px;height:36px;padding:0 12px 0 9px;border-radius:20px;background:#2C2C2E;display:flex;align-items:center;gap:7px;font:600 14px/1 Inter;color:#fff}
+#watch .wk-lv{animation:rise .35s cubic-bezier(.2,.9,.3,1)}
+#watch .pop{animation:pop .35s cubic-bezier(.2,1.4,.4,1)}
+#watch .ping{transform-origin:119.5px 96.5px;animation:ping 1.6s ease-out infinite}
+#watch .lg .wk-lv{font-size:36px;line-height:40px}
+#watch .lg .wk-row{font-size:18px;line-height:22px}
+#watch .lg .wk-hint{font-size:17px;line-height:21px}
+#watch .lg .wk-sub{font-size:15.5px;line-height:19px}
+#watch .lg .wk-t{font-size:21px;line-height:25px}
+#watch .lg .wk-p{font-size:17px;line-height:21px}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+@keyframes ping{from{transform:scale(.6);opacity:1}to{transform:scale(1.6);opacity:0}}
+#watch.shake{animation:shake .38s}
+#watch.bump{animation:bump .3s}
+@keyframes shake{20%{transform:translateX(-6px)}40%{transform:translateX(5px)}60%{transform:translateX(-3px)}80%{transform:translateX(2px)}}
+@keyframes bump{50%{transform:scale(1.015)}}
+.crown-hit{position:absolute;left:calc(var(--w)*203/198);top:calc(var(--w)*46/198);width:calc(var(--w)*30/198);height:calc(var(--w)*68/198);cursor:ns-resize;border-radius:10px;touch-action:none}
+.crown-hit::after{content:"";position:absolute;inset:6px 4px;border-radius:8px;box-shadow:0 0 0 2px var(--orange);opacity:0;transition:opacity .3s}
+.crown-hit:hover::after,.crown-hit.grab::after{opacity:.7}
+.crown-hit.tk::after{animation:tk .3s}
+@keyframes tk{0%{opacity:.9;transform:scaleY(1.08)}100%{opacity:0}}
+.hint-crown{position:absolute;left:calc(50% + var(--ww)*.72);top:calc(50% - var(--ww)*.62);font:500 10.5px/1.45 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--ink3);width:92px;pointer-events:none}
+.hint-crown::before{content:"";position:absolute;left:-16px;top:7px;width:10px;height:1px;background:currentColor}
+.why{min-height:84px;width:440px;max-width:100%;text-align:center;opacity:0;transform:translateY(6px);transition:all .35s}
+.why.show{opacity:1;transform:none}
+.why b{display:block;font:400 clamp(24px,3.4vh,30px)/1.05 var(--serif);font-style:italic;letter-spacing:-.01em;margin-bottom:6px;color:var(--ink)}
+.why span{font:400 14.5px/1.5 var(--sans);color:var(--ink2)}
+.why.good b{color:var(--hi)}.why.warn b{color:#D6336C}
+.dock{width:100%;max-width:640px;margin-top:clamp(8px,1.6vh,16px)}
+.dock .mono{text-align:center;margin-bottom:9px;font-size:11px}
+
+/* chips */
+.chips{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.chip{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:9px;padding:10px 12px;border-radius:12px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line);font:500 13.5px/1.2 var(--sans);color:var(--ink);transition:all .2s;white-space:nowrap}
+.chip:hover{background:#FBFAF7;box-shadow:inset 0 0 0 1px rgba(22,20,26,.22)}
+.chip svg{flex:none;width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.8}
+.chip.on{background:var(--ink);color:#F4F1EA;box-shadow:none}
+.chip:focus-visible,#watch button:focus-visible,.crown-hit:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+.chip.sound.on{background:var(--amber);color:#16141A}
+
+/* right: the room */
+.room{display:flex;flex-direction:column;gap:clamp(10px,1.6vh,14px);padding-top:clamp(4px,2vh,22px)}
+.card{background:var(--card);border-radius:20px;padding:clamp(12px,1.9vh,16px) 18px;box-shadow:0 1px 0 rgba(0,0,0,.03),0 14px 36px rgba(40,20,60,.07)}
+.card h3{margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.rs{background:#121016;color:#F5F2EC;--ink:#F5F2EC;--ink2:#C4BFCA;--ink3:#8C8794;--line:rgba(245,242,236,.1);box-shadow:0 22px 50px rgba(30,15,40,.25)}
+.rs-top{display:flex;justify-content:space-between;align-items:center}
+.rs-tag{font:500 10.5px/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--ink2);transition:all .3s}
+.rs-tag.warn{background:rgba(242,85,127,.2);color:#FF8FB0}
+.rs-tag.amb{background:rgba(255,181,71,.18);color:var(--amber)}
+.rs-song{display:flex;align-items:baseline;gap:9px;margin-top:12px}
+.rs-song b{font:560 14px/1 var(--sans)}
+.rs-song span{font:400 12.5px/1 var(--sans);color:var(--ink3)}
+.rs-lyr{margin-top:10px;min-height:58px}
+.rs-lyr .ln{font:400 clamp(21px,3vh,25px)/1.15 var(--serif);white-space:nowrap;position:relative}
+.rs-lyr .cur .base{color:rgba(245,242,236,.28)}
+.rs-lyr .cur .lit{position:absolute;left:0;top:0;color:var(--amber);overflow:hidden;width:var(--p,0%);text-shadow:0 0 18px rgba(255,181,71,.35)}
+.rs-lyr .nxt{font-size:16px;color:rgba(245,242,236,.36);margin-top:4px}
+.rs.quiet .rs-lyr{opacity:.35}
+.rs-map{display:block;width:100%;height:auto;margin:4px 0 6px;max-height:13vh}
+#seatGlow{transition:r .5s cubic-bezier(.3,1.5,.5,1),fill .4s}
+#seatDot{transition:fill .4s}
+.now{display:flex;align-items:center;gap:13px;padding-top:12px;border-top:1px solid var(--line)}
+.ladder{display:flex;flex-direction:column-reverse;gap:3px}
+.ladder i{width:7px;height:11px;border-radius:4px;background:#2A2730;transition:background .4s}
+.ladder i.on{background:var(--amber)}
+.now b{display:block;font:580 18px/1.05 var(--sans);letter-spacing:-.025em;color:var(--lv);transition:color .4s}
+.now span{font:400 13px/1.4 var(--sans);color:var(--ink3)}
+#mix{width:100%;height:clamp(72px,12vh,124px);display:block}
+.mixfoot{display:flex;justify-content:space-between;font:450 12px/1.4 var(--sans);color:var(--ink3);margin-top:6px}
+.mixfoot b{color:var(--ink);font-weight:550}
+.acc .chips{grid-template-columns:1fr 1fr}
+.acc .chip{background:var(--chip);box-shadow:none}
+.acc .chip:hover{background:var(--chip2)}
+.acc .chip.on{background:var(--ink);color:#F4F1EA}
+.acc .chip.sound.on{background:var(--amber);color:#16141A}
+.sub3{font:400 11.5px/1.45 var(--sans);color:var(--ink3);margin-top:10px}
+
+/* short or narrow screens: let it scroll like a normal page */
+@media (max-width:1100px),(max-height:620px){
+  .play{height:auto;grid-template-columns:minmax(0,1fr);max-width:620px;gap:22px;padding-bottom:48px;--ww:220px}
+  .stage{order:-1}.hint-crown{display:none}
+  #watch{margin-top:calc(var(--w)*.6)}
+  .intro h1{font-size:40px}
+}
+@media (max-width:560px){.play{padding:4px 16px 40px;--ww:200px}.chips{grid-template-columns:1fr 1fr}.chip{white-space:normal}}
+</style>
+</head>
+<body class="lt">
+<header class="top lt">
+  <a class="brand" href="../"><i></i>Undertone</a>
+  <nav><a href="../">Story</a><a class="act" href="./">Play</a><a href="../undertone-case-study.pdf">PDF</a><a href="https://github.com/yulinhenryou/undertone">GitHub</a></nav>
+</header>
+
+<main class="play">
+  <section class="intro">
+    <p class="mono">Interactive prototype</p>
+    <h1>Join the chorus, <span class="ser">a little at a time.</span></h1>
+    <p class="lead">A song has started in your karaoke room. Your watch brings your voice in step by step, from listening to singing beside the lead, and back out whenever you like.</p>
+    <div class="goals">
+      <p class="mono" style="color:var(--hi)">Try it</p>
+      <ol>
+        <li data-goal="enter"><i></i>Enter the room, confirm your seat</li>
+        <li data-goal="join"><i></i>Turn the wheel once to join softly</li>
+        <li data-goal="duet"><i></i>Keep turning, all the way to Duet</li>
+        <li data-goal="noise"><i></i>Make the room loud</li>
+        <li data-goal="off"><i></i>Leave: turn down, or tap Turn off</li>
+      </ol>
+      <small>Scroll on the watch, drag the side wheel, swipe the screen, or press <kbd>↑</kbd> <kbd>↓</kbd>.</small>
+    </div>
+    <p class="done-all">The room audio is a proposed system, simulated here. Song and lyrics are original. <a href="../#idea">How it works →</a></p>
+  </section>
+
+  <section class="stage" aria-label="Interactive watch">
+    <div class="wwrap">
+      <div id="watch" data-s="arrival" data-device="1" data-light="1" data-band="#CFC9DC" role="application" aria-label="Undertone watch prototype. Use the up and down arrow keys to turn the side wheel."></div>
+      <div class="hint-crown">Drag or scroll the side wheel</div>
+      <div id="why" class="why" aria-live="polite"></div>
+    </div>
+    <div class="dock">
+      <p class="mono">Change the room</p>
+      <div class="chips">
+        <button class="chip" data-scen="noise"><svg viewBox="0 0 24 24"><path d="M3 12h3l3-7 4 14 3-7h5"/></svg>Room gets loud</button>
+        <button class="chip" data-scen="solo"><svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg>Song is solo</button>
+        <button class="chip" data-scen="lost"><svg viewBox="0 0 24 24"><path d="M2 8.5a15 15 0 0 1 20 0M5.5 12a10 10 0 0 1 13 0M9 15.5a5 5 0 0 1 6 0M3 3l18 18"/></svg>Lose connection</button>
+        <button class="chip" data-scen="wrist"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>Lower your wrist</button>
+        <button class="chip" data-scen="end"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>End the song</button>
+        <button class="chip" data-scen="restart"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/></svg>Start over</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="room" aria-label="The room">
+    <div class="card rs" aria-label="The room's karaoke screen">
+      <div class="rs-top"><span class="mono">Room 7 · screen</span><span id="rsTag" class="rs-tag">Open song</span></div>
+      <p class="rs-song"><b>Lantern Tide</b><span>an original song</span></p>
+      <div class="rs-lyr"><p class="ln cur"><span class="base" id="lnA"></span><span class="lit" id="lnAlit"></span></p><p class="ln nxt" id="lnB"></p></div>
+      <svg class="rs-map" viewBox="0 0 312 112" aria-hidden="true" style="overflow:visible">
+        <rect x="96" y="2" width="120" height="5" rx="2.5" fill="#3A3540"/>
+        <circle cx="156" cy="20" r="5.5" fill="#B9A6FF"/>
+        <text x="168" y="23.5" font-family="Geist Mono" font-size="9" letter-spacing=".8" fill="#8C8794">LEAD</text>
+        <path d="M60 40h18v36h156V40h18v48H60z" fill="#211D27"/>
+        <rect x="112" y="44" width="88" height="22" rx="6" fill="none" stroke="#2C2833" stroke-dasharray="3 3"/>
+        <g fill="#3A3540"><circle cx="69" cy="50" r="5"/><circle cx="69" cy="68" r="5"/><circle cx="104" cy="82" r="5"/><circle cx="136" cy="82" r="5"/><circle cx="168" cy="82" r="5"/><circle cx="243" cy="68" r="5"/><circle cx="243" cy="50" r="5"/></g>
+        <circle id="seatGlow" cx="208" cy="82" r="0" fill="#FFB547" opacity=".3"/>
+        <circle id="seatDot" cx="208" cy="82" r="6.5" fill="#6F6A76"/>
+        <text x="262" y="86" font-family="Geist Mono" font-size="9" letter-spacing=".8" fill="#8C8794">YOU</text>
+      </svg>
+      <div class="now"><span class="ladder"><i></i><i></i><i></i></span><div><b id="lvName">Not in the room</b><span id="lvStatus">Mic off</span></div></div>
+    </div>
+    <div class="card">
+      <h3><span class="mono">What the room hears</span></h3>
+      <canvas id="mix" aria-hidden="true"></canvas>
+      <div class="mixfoot"><span>You vs. the lead: <b id="youDb">Off</b></span><span>Simulated</span></div>
+    </div>
+    <div class="card acc">
+      <h3><span class="mono">Access and sound</span></h3>
+      <div class="chips">
+        <button class="chip" data-scen="touch"><svg viewBox="0 0 24 24"><path d="M9 11V5a2 2 0 0 1 4 0v6M13 10a2 2 0 0 1 4 0v2M17 11a2 2 0 0 1 4 0v4a7 7 0 0 1-7 7h-1a7 7 0 0 1-6-3.4L4 15a2 2 0 0 1 3.4-2L9 15"/></svg>Touch version</button>
+        <button class="chip" data-scen="large"><svg viewBox="0 0 24 24"><path d="M4 19 9 5l5 14M6 14h6M15 19l3-8 3 8M16 16.5h4"/></svg>Larger text</button>
+        <button class="chip sound" data-scen="sound" style="grid-column:1/-1"><svg viewBox="0 0 24 24"><path d="M3 9h4l5-4v14l-5-4H3z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg>Sound on: hear yourself join</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="../assets/watchkit.js"></script>
+<script src="../assets/app.js"></script>
+</body>
+</html>

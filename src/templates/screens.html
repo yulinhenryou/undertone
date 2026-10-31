@@ -1,0 +1,13 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../docs/assets/fonts.css">
+<style>body{margin:0;background:transparent}.cell{display:inline-block;padding:0;margin:0}</style>
+</head><body>
+<div id="out"></div>
+<script src="../../docs/assets/watchkit.js"></script>
+<script>
+/* one screen per cell; the exporter screenshots each .wk at 2x */
+const final=['face','arrival','seat','listening','undertone','harmony','duet','noise','wrist','solo','lost','ended','touchListen','touch','large'];
+const history=['old_arrival','old_seat','old_listening','old_noise','old_tip','old_step','old_reveal','old_duet'];
+const out=document.getElementById('out');
+for(const s of final.concat(history)){const d=document.createElement('div');d.className='cell';d.innerHTML='<div data-s="'+s+'" style="--w:198px"></div>';out.appendChild(d);}
+</script></body></html>

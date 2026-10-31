@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Undertone · Join the chorus, a little at a time</title>
+<meta name="description" content="Undertone is an Apple Watch interface for karaoke. Turn the side wheel to bring your voice into a song one step at a time, from listening to singing beside the lead. A case study by Henry Ou.">
+<meta name="author" content="Henry Ou">
+<meta property="og:title" content="Undertone · Join the chorus, a little at a time">
+<meta property="og:description" content="An Apple Watch interface for karaoke, designed by Henry Ou. Four positions, one wheel, and only you can turn yourself up.">
+<meta property="og:image" content="https://yulinhenryou.github.io/undertone/assets/img/og.png">
+<meta property="og:url" content="https://yulinhenryou.github.io/undertone/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%230B0A0E'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23FFB547'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/story.css">
+</head>
+<body class="story">
+<header class="top lt">
+  <a class="brand" href="./"><i></i>Undertone</a>
+  <nav><a class="act" href="./">Story</a><a href="play/">Play</a><a href="undertone-case-study.pdf">PDF</a><a href="https://github.com/yulinhenryou/undertone">GitHub</a></nav>
+</header>
+
+<main>
+
+<!-- 00 · COVER -->
+<section class="sec light s-cover" id="top">
+  <div class="glow" style="width:640px;height:520px;left:-200px;top:-180px;background:#FFC069;opacity:.45"></div>
+  <div class="glow" style="width:620px;height:520px;right:-140px;top:8%;background:#F7A8C4;opacity:.42"></div>
+  <div class="glow" style="width:620px;height:460px;left:38%;bottom:-300px;background:#B9A6FF;opacity:.32"></div>
+  <div class="in">
+    <div>
+      <p class="mono">An Apple Watch interface · 2026</p>
+      <h1 class="h1 vol" data-from="140" data-to="860">Undertone</h1>
+      <p class="tagline ky" data-fill=".52">Join the chorus, a little at a time.</p>
+      <p class="lede">At karaoke, joining a song usually means taking the mic. Undertone lets you bring your voice in one turn of the watch’s side wheel at a time, from listening to singing beside the lead, and step back out whenever you like.</p>
+      <div class="btns web"><a class="btn" href="play/">Play the prototype <svg viewBox="0 0 14 14" fill="currentColor"><path d="M3 1.5v11l9-5.5z"/></svg></a><a class="btn ghost" href="#moment">Read the story</a></div>
+    </div>
+    <div>
+      <div class="film"><video id="film" src="assets/film/undertone.mp4" poster="assets/film/poster.jpg" autoplay muted loop playsinline aria-label="A 34-second film of Undertone: the watch turns from Listening to Undertone, Harmony and Duet, the room gets loud, then back to listening."></video></div>
+    </div>
+    <div class="meta"><div><span class="mono">Design</span><b>Henry Ou</b></div><div><span class="mono">What I did</span><b>Research, interaction and visual design, prototyping, testing</b></div><div><span class="mono">Platform</span><b>Apple Watch, with a proposed room audio system</b></div></div>
+  </div>
+</section>
+
+<!-- 01 · THE MOMENT -->
+<section class="sec s-moment" id="moment">
+  <div class="in">
+    <div class="rv">
+      <div class="lab"><b>01</b><span class="mono">The moment</span></div>
+      <h2 class="h2">Karaoke has two volumes: <em>silent</em> and <em>spotlight.</em></h2>
+      <p class="lede">Someone passes you the song. Take the mic and you’re the main act. Stay quiet and you’re out of it. Singing along without a mic is a guess: you can’t tell how much you stand out, or whether you’re drowning out the singer.</p>
+      <div class="opts">
+        <div class="opt"><span class="mono">Take the mic</span><b>Everyone is listening to you.</b></div>
+        <div class="opt"><span class="mono">Sing without it</span><b>You have no idea how loud you are.</b></div>
+        <div class="opt y"><span class="mono" style="color:var(--amber)">Undertone</span><b>The volumes in between.</b></div>
+      </div>
+    </div>
+    <div class="ph rv"><p class="lyr ky" data-fill=".42" data-ball="no">“You sing next!”</p><span class="ai">AI-generated scene · people are not real</span></div>
+  </div>
+</section>
+
+<!-- 02 · FOUR POSITIONS -->
+<section class="sec light t-blush s-idea" id="idea">
+  <div class="glow" style="width:900px;height:520px;left:30%;bottom:-300px;background:#FFB27A;opacity:.35"></div>
+  <div class="in">
+    <div class="lab"><b>02</b><span class="mono">The idea</span></div>
+    <div class="head rv">
+      <h2 class="h2">Four positions. <em>One wheel.</em></h2>
+      <p class="lede">Each turn of the side wheel moves your voice one step further into the song, and each step says what the room now hears. Turn it back down to step out. The screen warms with you.</p>
+    </div>
+    <div class="stairs">
+      <div class="st rv"><div data-s="listening" data-device="1" data-light="1" data-band="#8EC5F5"></div><p class="nm" style="font-weight:200;color:#1C7ED6">Listening</p><p class="mono db">Mic off</p><p class="body">Your voice isn’t amplified. A valid choice, not a failure.</p></div>
+      <div class="st rv"><div data-s="undertone" data-device="1" data-light="1" data-band="#FFB547"></div><p class="nm" style="font-weight:420;color:#E07B00">Undertone</p><p class="mono db">≈ −18 <span class="dbu">dB</span></p><p class="body">Soft, inside the chorus, well under the lead.</p></div>
+      <div class="st rv"><div data-s="harmony" data-device="1" data-light="1" data-band="#FF8F5A"></div><p class="nm" style="font-weight:620;color:#E8590C">Harmony</p><p class="mono db">≈ −8 <span class="dbu">dB</span></p><p class="body">Clearer, still under the lead.</p></div>
+      <div class="st rv"><div data-s="duet" data-device="1" data-light="1" data-band="#F2557F"></div><p class="nm" style="font-weight:840;color:#D6336C">Duet</p><p class="mono db">≈ 0 <span class="dbu">dB</span></p><p class="body">Side by side with the lead. Level with her, never above.</p></div>
+    </div>
+    <div class="turns"><span class="mono">↑ One turn up · ↓ One turn down · Any time</span><span class="mono">Type weight here is loudness · <span class="dbu">dB</span> relative to the lead, provisional</span></div>
+  </div>
+</section>
+
+<!-- 03 · THE RULE -->
+<section class="sec hot s-rule" id="rule">
+  <div class="in">
+    <div class="lab"><b>03</b><span class="mono">The one rule</span></div>
+    <h2 class="big rv">Only you can<br>turn yourself <span>up.</span></h2>
+    <p class="sub rv">The room may turn you down, or switch you off. Never up.</p>
+    <div class="cases">
+      <div class="case rv"><div data-s="noise" class="scr"></div><p class="mono">Room gets loud</p><p class="h3">Held at Undertone</p><p class="body">Harmony and Duet drop to Undertone while it lasts. When it clears, you stay put, and may turn up.</p></div>
+      <div class="case rv"><div data-s="solo" class="scr"></div><p class="mono">Song is solo</p><p class="h3">Joining closes</p><p class="body">The lead sets it before she sings, and the watch says why. Nobody is turned away in public.</p></div>
+      <div class="case rv"><div data-s="lost" class="scr"></div><p class="mono">Connection drops</p><p class="h3">Off, and stays off</p><p class="body">Reconnecting never reopens your mic. You decide when to join again.</p></div>
+      <div class="case rv"><div data-s="wrist" class="scr"></div><p class="mono">Wrist down</p><p class="h3">A sleeve can’t raise you</p><p class="body">Turning up only wakes the screen. Turning down still works.</p></div>
+      <div class="case rv"><div data-s="ended" class="scr"></div><p class="mono">Song ends</p><p class="h3">Back to listening</p><p class="body">Every song starts with your mic off, as a fresh choice.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · ANATOMY -->
+<section class="sec s-anat" id="screen">
+  <div class="glow" style="width:620px;height:600px;left:33%;top:12%;background:#FF8F5A;opacity:.16"></div>
+  <div class="in">
+    <div class="rv">
+      <div class="lab"><b>04</b><span class="mono">The screen</span></div>
+      <h2 class="h2">Built for <em>a glance</em> in the dark.</h2>
+      <p class="lede">A 45 mm screen, a dim room and a song already playing. You should know where you stand without reading anything twice.</p>
+    </div>
+    <div class="w rv">
+      <div data-s="harmony" data-device="1"></div>
+      <span class="mk" style="left:calc(var(--w)*-22/198);top:calc(var(--w)*17/198)">1</span>
+      <span class="mk" style="left:calc(var(--w)*-22/198);top:calc(var(--w)*47/198)">2</span>
+      <span class="mk" style="left:calc(var(--w)*-22/198);top:calc(var(--w)*79/198)">3</span>
+      <span class="mk" style="left:calc(var(--w)*168/198);top:calc(var(--w)*98/198)">4</span>
+      <span class="mk" style="left:calc(var(--w)*150/198);top:calc(var(--w)*186/198)">5</span>
+      <span class="mk" style="left:calc(var(--w)*-22/198);top:calc(var(--w)*214/198)">6</span>
+    </div>
+    <ol class="rv">
+      <li><i>1</i><div><p class="h3">Room and time</p><p class="body">The same top bar Apple’s own apps use.</p></div></li>
+      <li><i>2</i><div><p class="h3">One word for where you are</p><p class="body">30 pt, bold. Listening counts as a choice.</p></div></li>
+      <li><i>3</i><div><p class="h3">What the room hears</p><p class="body">An icon and plain words, so colour is never the only cue.</p></div></li>
+      <li><i>4</i><div><p class="h3">Three steps beside the wheel</p><p class="body">One segment per singing level, filling as you turn.</p></div></li>
+      <li><i>5</i><div><p class="h3">Stage light</p><p class="body">The screen warms from below as you turn up, so your level reads from the corner of your eye.</p></div></li>
+      <li><i>6</i><div><p class="h3">Turn off</p><p class="body">One tap back to listening, always on screen.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 05 · THE ROOM -->
+<section class="sec light t-lilac s-sys" id="room">
+  <div class="in">
+    <div class="rv">
+      <div class="lab"><b>05</b><span class="mono">The room</span></div>
+      <h2 class="h2 nb">You set your level.<br><em>The room does the rest.</em></h2>
+      <div class="steps">
+        <div class="s"><span class="mono">01</span><div><p class="h3">Your watch</p><p class="body">Controls one thing: your own level.</p></div></div>
+        <div class="s"><span class="mono">02</span><div><p class="h3">Ceiling microphone array</p><p class="body">Steers a pickup beam at your seat, and only yours.</p></div></div>
+        <div class="s"><span class="mono">03</span><div><p class="h3">Room mix</p><p class="body">Places you at your level, never above the lead.</p></div></div>
+        <div class="s"><span class="mono">04</span><div><p class="h3">Speakers</p><p class="body">One song, with you somewhere inside it.</p></div></div>
+      </div>
+      <div class="hon"><p class="body"><b style="color:var(--ink);font-weight:580">A proposal, not a product.</b> The watch interface is the design. The audio system around it is an assumption to test.</p>
+        <div class="tags"><span class="tag">Simulated in the prototype</span><span class="tag">Neighbour separation untested</span><span class="tag"><span><span class="dbu">dB</span> values provisional</span></span></div></div>
+    </div>
+    <svg class="rv plan" viewBox="0 0 760 640" fill="none" font-family="Geist Mono" font-size="11" letter-spacing=".8" role="img" aria-label="Top-down plan of a karaoke room: a ceiling microphone array steers a beam at seat 6 only.">
+      <defs>
+        <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#16141A" fill-opacity=".08"/></pattern>
+        <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF9F43" stop-opacity=".05"/><stop offset="1" stop-color="#FF9F43" stop-opacity=".6"/></linearGradient>
+        <radialGradient id="seatg"><stop offset="0" stop-color="#FFB547" stop-opacity=".6"/><stop offset="1" stop-color="#FFB547" stop-opacity="0"/></radialGradient>
+      </defs>
+      <rect x=".5" y=".5" width="759" height="639" rx="24" fill="#FFFFFF" stroke="#16141A" stroke-opacity=".08"/>
+      <rect x="1" y="1" width="758" height="638" rx="24" fill="url(#dots)"/>
+      <rect x="200" y="40" width="360" height="10" rx="3" fill="#16141A"/>
+      <text x="380" y="76" text-anchor="middle" fill="#7E7885">ROOM SCREEN</text>
+      <g stroke="#16141A" stroke-width="1.4"><rect x="48" y="36" width="30" height="40" rx="6"/><rect x="682" y="36" width="30" height="40" rx="6"/></g>
+      <text x="63" y="98" text-anchor="middle" fill="#7E7885">SPEAKER</text><text x="697" y="98" text-anchor="middle" fill="#7E7885">SPEAKER</text>
+      <circle cx="380" cy="138" r="14" fill="#8A6CF0"/><text x="380" y="176" text-anchor="middle" fill="#16141A">LEAD MIC</text>
+      <rect x="352" y="234" width="56" height="42" rx="10" fill="#FFFFFF" stroke="#16141A" stroke-width="1.4"/>
+      <g fill="#16141A"><circle cx="366" cy="248" r="2.6"/><circle cx="380" cy="248" r="2.6"/><circle cx="394" cy="248" r="2.6"/><circle cx="366" cy="262" r="2.6"/><circle cx="380" cy="262" r="2.6"/><circle cx="394" cy="262" r="2.6"/></g>
+      <text x="424" y="250" fill="#16141A">CEILING ARRAY</text><text x="424" y="266" fill="#7E7885">STEERED AT SEAT 6</text>
+      <rect x="250" y="318" width="260" height="76" rx="14" fill="#F4F1EA" stroke="#16141A" stroke-opacity=".18" stroke-width="1.4" stroke-dasharray="4 4"/>
+      <text x="380" y="361" text-anchor="middle" fill="#A8A2AE">TABLE</text>
+      <polygon points="380,256 534,470 600,470" fill="url(#beam)" style="mix-blend-mode:multiply"/>
+      <path d="M140 270h48v188h384V270h48v236H140z" fill="#EEEBF8" stroke="#16141A" stroke-opacity=".5" stroke-width="1.4"/>
+      <g fill="#FFFFFF" stroke="#16141A" stroke-opacity=".28" stroke-width="1.3"><circle cx="164" cy="306" r="14"/><circle cx="164" cy="388" r="14"/><circle cx="238" cy="482" r="14"/><circle cx="330" cy="482" r="14"/><circle cx="422" cy="482" r="14"/><circle cx="596" cy="388" r="14"/><circle cx="596" cy="306" r="14"/></g>
+      <g text-anchor="middle" fill="#7E7885"><text x="164" y="310">1</text><text x="164" y="392">2</text><text x="238" y="486">3</text><text x="330" y="486">4</text><text x="422" y="486">5</text><text x="596" y="392">7</text><text x="596" y="310">8</text></g>
+      <circle cx="566" cy="482" r="54" fill="url(#seatg)"/>
+      <circle cx="566" cy="482" r="16" fill="#FFB547"/><text x="566" y="486" text-anchor="middle" fill="#16141A" font-weight="600">6</text>
+      <path d="M566 508v50" stroke="#16141A" stroke-opacity=".5" stroke-width="1.2"/>
+      <g transform="translate(486 560)"><rect width="160" height="50" rx="25" fill="#16141A"/><text x="80" y="22" text-anchor="middle" fill="#FFB547" font-weight="600">YOU · SEAT 6</text><text x="80" y="38" text-anchor="middle" fill="#B9B4BF">HARMONY · −8 dB</text></g>
+      <text x="36" y="610" fill="#7E7885">TOP-DOWN · ROOM 7</text>
+    </svg>
+  </div>
+</section>
+
+<!-- 06 · EVERY WAY IN -->
+<section class="sec light t-sky s-acc" id="access">
+  <div class="in">
+    <div>
+      <div class="lab"><b>06</b><span class="mono">Every way in</span></div>
+      <h2 class="h2 nb rv">Works without the wheel.<br><em>Honest about the rest.</em></h2>
+      <div class="ws">
+        <div class="wv rv"><div data-s="touch" class="scr" style="--w:clamp(120px,11vw,176px)"></div><p class="mono">Designed</p><p class="h3">Touch version</p><p class="body">Join softly, Softer and Louder, with the same rules. Kept separate so the default screen stays quiet.</p></div>
+        <div class="wv rv"><div data-s="large" class="scr" style="--w:clamp(120px,11vw,176px)"></div><p class="mono">Partly checked</p><p class="h3">Larger text</p><p class="body">An example at about 125% reflows without clipping. 200% isn’t checked yet.</p></div>
+        <div class="wv rv"><div data-s="undertone" class="scr" style="--w:clamp(120px,11vw,176px)"></div><span class="vo-ring"></span><span class="vo-bub">“Undertone. Mic on, softly. Level 1 of 3.”</span><p class="mono">Proposed</p><p class="h3">VoiceOver labels</p><p class="body">The level is one adjustable element, so the wheel and a VoiceOver swipe do the same thing.</p></div>
+      </div>
+    </div>
+    <div class="rv">
+      <p class="mono" style="margin-bottom:14px">Against WCAG 2.2 AA, read for a watch</p>
+      <div class="row"><span class="st" style="color:#1D7A39"><i style="background:#2FA44F"></i>Met</span><div><b>Text contrast</b><p class="small">Every text colour 7:1 or more; the lowest is 10.1:1</p></div></div>
+      <div class="row"><span class="st" style="color:#1D7A39"><i style="background:#2FA44F"></i>Met</span><div><b>Colour is never the only cue</b><p class="small">Every state is written in words; the stage light only supports them</p></div></div>
+      <div class="row"><span class="st" style="color:#1864AB"><i style="background:#339AF0"></i>Designed</span><div><b>Touch alternative</b><p class="small">Not yet tested with users</p></div></div>
+      <div class="row"><span class="st" style="color:#A35A00"><i style="background:#F59F00"></i>Intended</span><div><b>Touch targets</b><p class="small">40 pt buttons, 44 pt touch areas intended, not measured</p></div></div>
+      <div class="row"><span class="st" style="color:#5F3DC4"><i style="background:#845EF7"></i>Proposed</span><div><b>Screen reader</b><p class="small">Labels, reading order and announcements for level, noise and connection</p></div></div>
+      <div class="row"><span class="st" style="color:#A35A00"><i style="background:#F59F00"></i>Partial</span><div><b>Larger text</b><p class="small">About 125% reflows; 200% not checked</p></div></div>
+      <div class="row"><span class="st" style="color:var(--ink3)"><i style="background:var(--ink3)"></i>Not checked</span><div><b>Keyboard and switch access</b><p class="small">Needs a real watch build</p></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="part light web"><div class="in"><p>Backstage</p><span class="mono">How it got here</span></div></div>
+
+<!-- 07 · RESEARCH -->
+<section class="sec light t-rose s-res" id="research">
+  <div class="in">
+    <div class="rv">
+      <div class="lab"><b>07</b><span class="mono">Listening first</span></div>
+      <p class="n">120</p>
+      <p class="lede"><b>public accounts of karaoke nights</b>, gathered in an online ethnography and coded for how people join, hold back or take over a song. Most came from six threads, so they guided decisions rather than proved them.</p>
+      <div class="ins island"><p class="mono">What they had in common</p><p class="quote">People wanted in, just not all at once, and not at the singer’s expense.</p></div>
+    </div>
+    <div class="rv">
+      <div class="q"><span class="mono">E119</span><div><p class="quote">“If they have not asked, you can sing along without a microphone.”</p><p class="body"><em>Led to</em>A level where you’re heard inside the chorus, with no mic in hand</p></div></div>
+      <div class="q"><span class="mono">E107</span><div><p class="quote">“I sing out of tune and need others to cover my voice a little.”</p><p class="body"><em>Led to</em>The first step sits well under the lead</p></div></div>
+      <div class="q"><span class="mono">E32 · E37</span><div><p class="quote">“I can’t hear anyone when EVERYONE is singing!”</p><p class="body"><em>Led to</em>No one goes above the lead, and room noise holds everyone soft</p></div></div>
+      <div class="q"><span class="mono">E112 · E116</span><div><p class="quote">Some singers want their song to themselves.</p><p class="body"><em>Led to</em>The lead can keep a song solo before she starts</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 · THE TURN -->
+<section class="sec light t-lilac s-turn" id="turn">
+  <div class="in">
+    <div class="rv">
+      <div class="lab"><b>08</b><span class="mono">The turn</span></div>
+      <h2 class="h2">Give the control to the person <em>deciding</em> to join.</h2>
+      <div class="pair">
+        <div>
+          <div class="v"><svg class="d" viewBox="0 0 260 150" fill="none" stroke-linecap="round">
+            <rect x="92" y="46" width="76" height="54" rx="8" fill="#fff" stroke="#16141A" stroke-width="2"/><path d="M104 62h52M104 74h34M104 86h42" stroke="#C9C4BC" stroke-width="3"/>
+            <circle cx="130" cy="18" r="9" fill="#8A6CF0"/>
+            <g fill="#BDB7AE"><circle cx="26" cy="58" r="9"/><circle cx="26" cy="92" r="9"/><circle cx="234" cy="58" r="9"/><circle cx="234" cy="92" r="9"/></g>
+            <path d="M80 64 40 58M80 84 40 92M180 64 220 58M180 84 220 92" stroke="#A8A196" stroke-width="1.6" stroke-dasharray="3 5"/>
+            <text x="130" y="136" text-anchor="middle" font-family="Geist Mono" font-size="11" letter-spacing="1" fill="#857F8C">ONE SHARED SCREEN</text></svg></div>
+          <p class="mono">Before · my earlier concept</p><p class="h3">The singer invites, on a shared tablet</p><p class="body">Joining stayed public, and it said little about the person deciding.</p>
+        </div>
+        <svg width="30" height="16" viewBox="0 0 30 16" fill="none" stroke="#16141A" stroke-width="1.6" stroke-linecap="round" style="margin-top:-80px"><path d="M2 8h24M20 2l6 6-6 6"/></svg>
+        <div>
+          <div class="v on"><svg class="d" viewBox="0 0 260 150" fill="none" stroke-linecap="round">
+            <circle cx="130" cy="18" r="9" fill="#8A6CF0"/>
+            <g fill="#3A3540"><circle cx="40" cy="70" r="9"/><circle cx="220" cy="70" r="9"/><circle cx="84" cy="94" r="9"/></g>
+            <circle cx="170" cy="94" r="11" fill="#FFB547"/><rect x="179" y="102" width="20" height="24" rx="6" fill="#F5F2EC"/><rect x="183" y="106" width="12" height="16" rx="3" fill="#FFB547"/>
+            <path d="M160 80c-6-12-6-26 4-38M148 82c-10-16-8-34 6-48" stroke="#FFB547" stroke-width="2"/>
+            <text x="130" y="142" text-anchor="middle" font-family="Geist Mono" font-size="11" letter-spacing="1" fill="#8C8794">EACH PERSON’S OWN WRIST</text></svg></div>
+          <p class="mono">After · Undertone</p><p class="h3">You decide, on your own watch</p><p class="body">The same problem from the other side. Nobody has to watch you do it.</p>
+        </div>
+      </div>
+      <div class="crit"><p class="mono">What turned it around</p><p class="quote">A critique of the earlier concept: it ignored the person deciding whether to join.</p></div>
+    </div>
+    <div class="desk island rv">
+      <div style="display:flex;justify-content:space-between"><p class="mono">The room, as a mixing desk</p><p class="mono" style="color:var(--amber)">Room 7</p></div>
+      <div class="strips">
+        <div class="strip"><h4>Lead</h4><p class="mono">0 <span class="dbu">dB</span></p><div class="fd"><span class="tr"></span><span class="fl" style="height:90%;background:#B9A6FF"></span><span class="kn" style="top:10%"></span></div><p class="cap">Her song. She decides if it’s open, and nothing goes above her.</p></div>
+        <div class="strip"><h4>Friends</h4><p class="mono">Chorus</p><div class="fd"><span class="tr"></span><span class="fl" style="height:55%;background:#77727F"></span><span class="kn" style="top:45%"></span></div><p class="cap">The chorus you can hide inside.</p></div>
+        <div class="strip you"><h4>You</h4><p class="mono" style="color:var(--amber)">Your level</p><div class="fd"><span class="tr"></span><span class="fl" style="height:35%;background:#FFB547"></span><span class="kn" style="top:65%;background:#FFB547"></span></div><p class="cap">The only fader that isn’t on the desk. <span style="color:var(--amber)">It’s on your wrist.</span></p></div>
+        <div class="strip"><h4>Next seat</h4><p class="mono">Off</p><div class="fd" style="opacity:.4"><span class="tr"></span><span class="kn" style="top:100%"></span></div><span class="mute">Not picked up</span><p class="cap">Only the seat that chose to join is heard.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 · SKETCHES -->
+<section class="sec light s-sk" id="sketches">
+  <div class="in">
+    <div class="rv">
+      <div class="lab"><b>09</b><span class="mono">Sketching</span></div>
+      <h2 class="h2">Five decisions, <em>sketched before any screen.</em></h2>
+      <div class="hero"><span class="ring"></span><span class="tag">Kept</span></div>
+      <div class="cap"><span class="mono">Sheet 1 · Input</span><p class="body">Five ways to control joining, drawn by hand. Stepped turns of the side wheel won: turning maps to “more or less of me”, the steps can be counted by feel, and nobody sees you do it.</p></div>
+    </div>
+    <div class="rv">
+      <div class="it"><span class="n">1</span><div><p class="h3">Input <span class="k y">Kept: wheel steps</span></p><p class="body">A slider needs a look; a join toggle is all or nothing.</p></div></div>
+      <div class="it"><span class="n">2</span><div><p class="h3">Layout <span class="k y">Kept: one word</span></p><p class="body">A ring read as a volume meter, a list as a menu.</p></div></div>
+      <div class="it"><span class="n">3</span><div><p class="h3">Visibility <span class="k y">Kept: private</span></p><p class="body">Who is singing is never shown or counted, on any screen.</p></div></div>
+      <div class="it"><span class="n">4</span><div><p class="h3">Naming <span class="k x">Cut</span></p><p class="body">Naming the person who joins added risk and no benefit.</p></div></div>
+      <div class="it"><span class="n">5</span><div><p class="h3">Leaving <span class="k c">Changed</span></p><p class="body">The palm cover I ticked can’t be promised on watchOS. Turning down became the exit, plus a button.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · CUTS -->
+<section class="sec light t-blush s-cut" id="cuts">
+  <div class="in">
+    <div class="rv">
+      <div class="lab"><b>10</b><span class="mono">The cutting room</span></div>
+      <h2 class="h2">Less, until it did <em>three things.</em></h2>
+      <div class="cuts">
+        <div class="c"><s>Your name on the room screen</s><p class="body">A second goal, and a turn too far could name you by accident.</p></div>
+        <div class="c"><s>A one-time tip screen</s><p class="body">The guidance moved onto Listening itself.</p></div>
+        <div class="c"><s>A score after the song</s><p class="body">It judges the very fear the design works against.</p></div>
+        <div class="c"><s>Volume that follows your voice</s><p class="body">Takes control away from you.</p></div>
+        <div class="c"><s>The singer invites you by name</s><p class="body">Puts you on the spot it was meant to avoid.</p></div>
+      </div>
+      <p class="kept">Join. Adjust. Stop.</p>
+    </div>
+    <div class="vt rv">
+      <p class="mono" style="margin-bottom:18px">How the flow changed</p>
+      <div class="v"><i></i><b>v1.0</b><p class="body">A seat picker, three levels, and a named duet behind a side-button press.</p></div>
+      <div class="v"><i></i><b>v1.1</b><p class="body">watchOS reserves that press, so it became a tap. Wrist down can’t turn you up.</p><p class="mono">Self-critique · AI heuristic review</p></div>
+      <div class="v"><i></i><b>v1.2</b><p class="body">The lead can keep a song solo. Turning down becomes the main way out.</p><p class="mono">Design reviews</p></div>
+      <div class="v"><i></i><b>v1.3</b><p class="body">Rebuilt on native watch patterns: one word, a level bar, a bottom button.</p><p class="mono">Checking at true size</p></div>
+      <div class="v"><i></i><b>Tested</b><p class="body">Duet, naming and the tip removed. Listening, Undertone and Harmony.</p><p class="mono">Peer review</p></div>
+      <div class="v fin"><i></i><b>Now</b><p class="body">Clearer labels from testing. The duet returns as the top step, without a name.</p><p class="mono">After testing · not yet tested</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · TESTING -->
+<section class="sec light t-blush s-test" id="testing">
+  <div class="in">
+    <div class="lab"><b>11</b><span class="mono">Soundcheck</span></div>
+    <h2 class="h2 rv">Three think-aloud sessions. <em>People got the idea, and tripped on words.</em></h2>
+    <div class="meters rv">
+      <div class="m hi"><b>3<small>/3</small></b><p class="body">could explain why joining a solo song was closed</p></div>
+      <div class="m"><b>2<small>/3</small></b><p class="body">joined without help; the third needed a hint to find the wheel</p></div>
+      <div class="m"><b>1</b><p class="body">mouse scroll skipped a level, and was corrected by the participant</p></div>
+      <div class="m"><b>2<small>/3</small></b><p class="body">stopped on their own; the third tapped the mic button, result not recorded</p></div>
+    </div>
+    <div class="lower rv">
+      <div class="who"><p class="mono" style="margin-bottom:10px">Who · on a laptop, a mouse wheel as the side wheel</p>
+        <div><b>P1</b><span class="body">Rarely sings · 5–6 karaoke visits · no Apple Watch</span></div>
+        <div><b>P2</b><span class="body">Likes singing · goes often · wears a Watch daily</span></div>
+        <div><b>P3</b><span class="body">Mostly listens · two visits · had seen screenshots</span></div>
+        <p class="small" style="margin-top:10px">International students, two first-year and one second-year, all friends of mine, so their comments may lean kind.</p></div>
+      <div><table>
+        <tr><th>Task</th><th>P1</th><th>P2</th><th>P3</th></tr>
+        <tr><td>Enter and confirm the seat</td><td><i class="dt"></i></td><td><i class="dt"></i></td><td><i class="dt"></i></td></tr>
+        <tr><td>Join very softly</td><td><i class="dt"></i></td><td><i class="dt"></i></td><td><i class="dt h"></i></td></tr>
+        <tr><td>Be heard more clearly</td><td><i class="dt"></i></td><td><i class="dt"></i></td><td><i class="dt"></i></td></tr>
+        <tr><td>Try to join a solo song</td><td><i class="dt"></i></td><td><i class="dt"></i></td><td><i class="dt"></i></td></tr>
+        <tr><td>Go silent after a break</td><td><i class="dt"></i></td><td><i class="dt"></i></td><td><i class="dt n"></i></td></tr>
+      </table>
+      <div class="leg small"><span><i class="dt"></i>Alone</span><span><i class="dt h"></i>After a hint</span><span><i class="dt n"></i>Not recorded</span></div></div>
+      <div class="heard"><p class="mono" style="margin-bottom:12px">Heard in the room</p>
+        <p class="quote">“What does Turn the crown mean?”</p><p class="mono">P3 · finding the control</p>
+        <p class="quote">“Am I too loud?”</p><p class="mono">P1 · reading the noise warning</p>
+        <p class="quote">“She wants to sing this one on her own.”</p><p class="mono" style="margin-bottom:0">P1 · the solo rule</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · WHAT CHANGED -->
+<section class="sec light t-sky s-chg" id="changes">
+  <div class="in">
+    <div class="rv">
+      <div class="lab"><b>12</b><span class="mono">What changed</span></div>
+      <h2 class="h2">Four words, <em>then one more step.</em></h2>
+      <div class="rows">
+        <div class="r"><p class="quote">“Does Join quietly turn the mic on?”</p><div class="ch"><s>Join quietly</s><b>Enter room</b><span class="small">P3 · with “Mic stays off” said first</span></div></div>
+        <div class="r"><p class="quote">“Which dot is me?”</p><div class="ch"><s>Your seat</s><b>You: seat 6</b><span class="small">P1 · P2 tried tapping a seat</span></div></div>
+        <div class="r"><p class="quote">“What does Turn the crown mean?”</p><div class="ch"><s>Turn the crown to join</s><b>Turn wheel to join</b><span class="small">P3 · with how to stop on the same screen</span></div></div>
+        <div class="r"><p class="quote">“Am I too loud?”</p><div class="ch"><s>Too loud near you</s><b>Room noise is high</b><span class="small">P1 · names the cause, not the person</span></div></div>
+      </div>
+      <p class="small" style="margin-top:12px">Quotes translated from Chinese. In a follow-up, P3, who had seen the earlier version, found the revised flow clearer; not a first impression, so a retest with someone new is still needed.</p>
+    </div>
+    <div class="after island rv">
+      <p class="mono">After testing · not yet tested</p>
+      <p class="t">The scale now ends <em>beside the lead.</em></p>
+      <p class="body">In testing, one participant reached Harmony and tried one more turn. The level bar already had a third segment that only the cut duet ever used. So the duet came back as the top step, without a name, reached one turn at a time like every other level, and the screen now warms as you rise.</p>
+      <div class="ws"><div data-s="undertone" class="scr"></div><div data-s="harmony" class="scr"></div><div data-s="duet" class="scr"></div></div>
+      <p class="small note">The wheel steps stayed as they were: one mouse scroll skipped a level, but a mouse says little about a real watch wheel.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · NEXT -->
+<section class="sec light t-lilac s-next" id="next">
+  <div class="in">
+    <div class="rv">
+      <div class="lab"><b>13</b><span class="mono">Outro</span></div>
+      <h2 class="h2">What I’d keep, <em>and what’s still open.</em></h2>
+      <div class="cols">
+        <div><p class="mono">Why a watch</p><p class="h3">Already on your wrist</p><p class="body">A phone has to be unlocked and held up; a shared tablet makes joining public. The cost is a tiny screen with no room to explain, which is why every word mattered.</p></div>
+        <div><p class="mono">The decision that mattered</p><p class="h3">Control moved to the joiner</p><p class="body">Moving it from the singer’s tablet to the joiner’s wrist changed who the design serves. One rule then shaped every other screen.</p></div>
+        <div><p class="mono">What critique changed</p><p class="h3">I stopped adding</p><p class="body">Extra features competed with joining. Testing showed people understood the levels and stumbled on words, so I fixed the words.</p></div>
+        <div><p class="mono">A trade-off I kept</p><p class="h3">The native look</p><p class="body">I expect an Apple-like screen to feel trustworthy on a watch, though that’s untested. The touch version stays separate so the default screen stays quiet.</p></div>
+      </div>
+      <div class="open"><p class="mono">Still open</p><div class="tags"><span class="tag">How loud each level sounds to others</span><span class="tag">Real wheel steps on a watch</span><span class="tag">Whether friends recognise a voice</span><span class="tag">Separating neighbouring voices</span><span class="tag">Duet and the stage light with users</span><span class="tag">Whether Duet should need the lead’s OK</span><span class="tag">VoiceOver on a real watch</span></div></div>
+    </div>
+    <div class="study island rv">
+      <p class="mono">Next study</p>
+      <p class="t">A real watch, in a <em>real karaoke room.</em></p>
+      <p class="body">The desktop test shows the interface is understood, not that joining feels safer. Next: friend groups, a watch build, and a person at the mixing desk standing in for the audio system.</p>
+      <ul><li><span>01</span>Felt exposure after each song, 1–7</li><li><span>02</span>Glances per level change</li><li><span>03</span>Time to stop mid-chorus</li><li><span>04</span>Whether friends can tell who sang along</li><li><span>05</span>How lead singers rate songs with and without joiners</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- 14 · END -->
+<section class="sec light t-rose s-end" id="end">
+  <div class="glow" style="width:760px;height:600px;right:-160px;top:-160px;background:#F7A8C4;opacity:.45"></div>
+  <div class="glow" style="width:620px;height:480px;left:-200px;bottom:-260px;background:#FFC069;opacity:.4"></div>
+  <div class="in">
+    <div class="rv">
+      <div class="lab"><b>14</b><span class="mono">Play it</span></div>
+      <p class="big ky" data-fill=".58" data-ball="no">Now turn the wheel.</p>
+      <p class="lede">The prototype runs in your browser. Join softly, go all the way to Duet, make the room loud, ask for a solo, and hear your own voice come in under the lead.</p>
+      <div class="go"><div class="qr"><svg viewBox="0 0 29 29" width="132" height="132" shape-rendering="crispEdges"><path d="M0,0h1v1h-1zM1,0h1v1h-1zM2,0h1v1h-1zM3,0h1v1h-1zM4,0h1v1h-1zM5,0h1v1h-1zM6,0h1v1h-1zM9,0h1v1h-1zM10,0h1v1h-1zM12,0h1v1h-1zM13,0h1v1h-1zM18,0h1v1h-1zM22,0h1v1h-1zM23,0h1v1h-1zM24,0h1v1h-1zM25,0h1v1h-1zM26,0h1v1h-1zM27,0h1v1h-1zM28,0h1v1h-1zM0,1h1v1h-1zM6,1h1v1h-1zM8,1h1v1h-1zM9,1h1v1h-1zM10,1h1v1h-1zM11,1h1v1h-1zM12,1h1v1h-1zM14,1h1v1h-1zM18,1h1v1h-1zM20,1h1v1h-1zM22,1h1v1h-1zM28,1h1v1h-1zM0,2h1v1h-1zM2,2h1v1h-1zM3,2h1v1h-1zM4,2h1v1h-1zM6,2h1v1h-1zM8,2h1v1h-1zM9,2h1v1h-1zM10,2h1v1h-1zM12,2h1v1h-1zM19,2h1v1h-1zM20,2h1v1h-1zM22,2h1v1h-1zM24,2h1v1h-1zM25,2h1v1h-1zM26,2h1v1h-1zM28,2h1v1h-1zM0,3h1v1h-1zM2,3h1v1h-1zM3,3h1v1h-1zM4,3h1v1h-1zM6,3h1v1h-1zM8,3h1v1h-1zM10,3h1v1h-1zM11,3h1v1h-1zM13,3h1v1h-1zM17,3h1v1h-1zM20,3h1v1h-1zM22,3h1v1h-1zM24,3h1v1h-1zM25,3h1v1h-1zM26,3h1v1h-1zM28,3h1v1h-1zM0,4h1v1h-1zM2,4h1v1h-1zM3,4h1v1h-1zM4,4h1v1h-1zM6,4h1v1h-1zM9,4h1v1h-1zM10,4h1v1h-1zM11,4h1v1h-1zM12,4h1v1h-1zM13,4h1v1h-1zM16,4h1v1h-1zM19,4h1v1h-1zM20,4h1v1h-1zM22,4h1v1h-1zM24,4h1v1h-1zM25,4h1v1h-1zM26,4h1v1h-1zM28,4h1v1h-1zM0,5h1v1h-1zM6,5h1v1h-1zM9,5h1v1h-1zM10,5h1v1h-1zM13,5h1v1h-1zM14,5h1v1h-1zM16,5h1v1h-1zM22,5h1v1h-1zM28,5h1v1h-1zM0,6h1v1h-1zM1,6h1v1h-1zM2,6h1v1h-1zM3,6h1v1h-1zM4,6h1v1h-1zM5,6h1v1h-1zM6,6h1v1h-1zM8,6h1v1h-1zM10,6h1v1h-1zM12,6h1v1h-1zM14,6h1v1h-1zM16,6h1v1h-1zM18,6h1v1h-1zM20,6h1v1h-1zM22,6h1v1h-1zM23,6h1v1h-1zM24,6h1v1h-1zM25,6h1v1h-1zM26,6h1v1h-1zM27,6h1v1h-1zM28,6h1v1h-1zM8,7h1v1h-1zM9,7h1v1h-1zM11,7h1v1h-1zM12,7h1v1h-1zM14,7h1v1h-1zM16,7h1v1h-1zM18,7h1v1h-1zM19,7h1v1h-1zM20,7h1v1h-1zM0,8h1v1h-1zM6,8h1v1h-1zM8,8h1v1h-1zM10,8h1v1h-1zM11,8h1v1h-1zM12,8h1v1h-1zM13,8h1v1h-1zM14,8h1v1h-1zM15,8h1v1h-1zM17,8h1v1h-1zM19,8h1v1h-1zM21,8h1v1h-1zM22,8h1v1h-1zM25,8h1v1h-1zM26,8h1v1h-1zM27,8h1v1h-1zM0,9h1v1h-1zM1,9h1v1h-1zM2,9h1v1h-1zM3,9h1v1h-1zM10,9h1v1h-1zM11,9h1v1h-1zM12,9h1v1h-1zM13,9h1v1h-1zM14,9h1v1h-1zM15,9h1v1h-1zM17,9h1v1h-1zM18,9h1v1h-1zM19,9h1v1h-1zM20,9h1v1h-1zM23,9h1v1h-1zM24,9h1v1h-1zM26,9h1v1h-1zM27,9h1v1h-1zM0,10h1v1h-1zM1,10h1v1h-1zM3,10h1v1h-1zM4,10h1v1h-1zM5,10h1v1h-1zM6,10h1v1h-1zM8,10h1v1h-1zM10,10h1v1h-1zM11,10h1v1h-1zM13,10h1v1h-1zM14,10h1v1h-1zM15,10h1v1h-1zM18,10h1v1h-1zM20,10h1v1h-1zM22,10h1v1h-1zM23,10h1v1h-1zM24,10h1v1h-1zM0,11h1v1h-1zM2,11h1v1h-1zM3,11h1v1h-1zM7,11h1v1h-1zM9,11h1v1h-1zM10,11h1v1h-1zM16,11h1v1h-1zM18,11h1v1h-1zM20,11h1v1h-1zM22,11h1v1h-1zM25,11h1v1h-1zM0,12h1v1h-1zM1,12h1v1h-1zM4,12h1v1h-1zM5,12h1v1h-1zM6,12h1v1h-1zM7,12h1v1h-1zM9,12h1v1h-1zM11,12h1v1h-1zM15,12h1v1h-1zM16,12h1v1h-1zM19,12h1v1h-1zM22,12h1v1h-1zM23,12h1v1h-1zM28,12h1v1h-1zM1,13h1v1h-1zM3,13h1v1h-1zM4,13h1v1h-1zM7,13h1v1h-1zM8,13h1v1h-1zM9,13h1v1h-1zM10,13h1v1h-1zM11,13h1v1h-1zM12,13h1v1h-1zM15,13h1v1h-1zM16,13h1v1h-1zM19,13h1v1h-1zM20,13h1v1h-1zM22,13h1v1h-1zM23,13h1v1h-1zM24,13h1v1h-1zM27,13h1v1h-1zM28,13h1v1h-1zM1,14h1v1h-1zM2,14h1v1h-1zM6,14h1v1h-1zM7,14h1v1h-1zM8,14h1v1h-1zM12,14h1v1h-1zM14,14h1v1h-1zM15,14h1v1h-1zM20,14h1v1h-1zM21,14h1v1h-1zM22,14h1v1h-1zM24,14h1v1h-1zM25,14h1v1h-1zM26,14h1v1h-1zM1,15h1v1h-1zM2,15h1v1h-1zM4,15h1v1h-1zM7,15h1v1h-1zM8,15h1v1h-1zM11,15h1v1h-1zM15,15h1v1h-1zM19,15h1v1h-1zM22,15h1v1h-1zM23,15h1v1h-1zM26,15h1v1h-1zM28,15h1v1h-1zM2,16h1v1h-1zM3,16h1v1h-1zM5,16h1v1h-1zM6,16h1v1h-1zM7,16h1v1h-1zM8,16h1v1h-1zM10,16h1v1h-1zM11,16h1v1h-1zM12,16h1v1h-1zM13,16h1v1h-1zM17,16h1v1h-1zM19,16h1v1h-1zM25,16h1v1h-1zM26,16h1v1h-1zM0,17h1v1h-1zM3,17h1v1h-1zM4,17h1v1h-1zM7,17h1v1h-1zM13,17h1v1h-1zM15,17h1v1h-1zM16,17h1v1h-1zM18,17h1v1h-1zM19,17h1v1h-1zM20,17h1v1h-1zM22,17h1v1h-1zM23,17h1v1h-1zM24,17h1v1h-1zM26,17h1v1h-1zM27,17h1v1h-1zM28,17h1v1h-1zM0,18h1v1h-1zM1,18h1v1h-1zM2,18h1v1h-1zM4,18h1v1h-1zM6,18h1v1h-1zM8,18h1v1h-1zM11,18h1v1h-1zM12,18h1v1h-1zM15,18h1v1h-1zM18,18h1v1h-1zM19,18h1v1h-1zM22,18h1v1h-1zM24,18h1v1h-1zM25,18h1v1h-1zM28,18h1v1h-1zM0,19h1v1h-1zM4,19h1v1h-1zM8,19h1v1h-1zM11,19h1v1h-1zM14,19h1v1h-1zM16,19h1v1h-1zM18,19h1v1h-1zM21,19h1v1h-1zM23,19h1v1h-1zM24,19h1v1h-1zM0,20h1v1h-1zM2,20h1v1h-1zM3,20h1v1h-1zM6,20h1v1h-1zM7,20h1v1h-1zM12,20h1v1h-1zM15,20h1v1h-1zM16,20h1v1h-1zM17,20h1v1h-1zM18,20h1v1h-1zM19,20h1v1h-1zM20,20h1v1h-1zM21,20h1v1h-1zM22,20h1v1h-1zM23,20h1v1h-1zM24,20h1v1h-1zM26,20h1v1h-1zM27,20h1v1h-1zM28,20h1v1h-1zM8,21h1v1h-1zM9,21h1v1h-1zM10,21h1v1h-1zM11,21h1v1h-1zM12,21h1v1h-1zM13,21h1v1h-1zM14,21h1v1h-1zM15,21h1v1h-1zM17,21h1v1h-1zM18,21h1v1h-1zM19,21h1v1h-1zM20,21h1v1h-1zM24,21h1v1h-1zM25,21h1v1h-1zM0,22h1v1h-1zM1,22h1v1h-1zM2,22h1v1h-1zM3,22h1v1h-1zM4,22h1v1h-1zM5,22h1v1h-1zM6,22h1v1h-1zM11,22h1v1h-1zM13,22h1v1h-1zM14,22h1v1h-1zM15,22h1v1h-1zM16,22h1v1h-1zM17,22h1v1h-1zM19,22h1v1h-1zM20,22h1v1h-1zM22,22h1v1h-1zM24,22h1v1h-1zM25,22h1v1h-1zM26,22h1v1h-1zM0,23h1v1h-1zM6,23h1v1h-1zM10,23h1v1h-1zM13,23h1v1h-1zM15,23h1v1h-1zM16,23h1v1h-1zM18,23h1v1h-1zM19,23h1v1h-1zM20,23h1v1h-1zM24,23h1v1h-1zM27,23h1v1h-1zM0,24h1v1h-1zM2,24h1v1h-1zM3,24h1v1h-1zM4,24h1v1h-1zM6,24h1v1h-1zM9,24h1v1h-1zM10,24h1v1h-1zM11,24h1v1h-1zM13,24h1v1h-1zM16,24h1v1h-1zM19,24h1v1h-1zM20,24h1v1h-1zM21,24h1v1h-1zM22,24h1v1h-1zM23,24h1v1h-1zM24,24h1v1h-1zM25,24h1v1h-1zM27,24h1v1h-1zM0,25h1v1h-1zM2,25h1v1h-1zM3,25h1v1h-1zM4,25h1v1h-1zM6,25h1v1h-1zM10,25h1v1h-1zM11,25h1v1h-1zM13,25h1v1h-1zM15,25h1v1h-1zM17,25h1v1h-1zM18,25h1v1h-1zM20,25h1v1h-1zM21,25h1v1h-1zM23,25h1v1h-1zM25,25h1v1h-1zM26,25h1v1h-1zM28,25h1v1h-1zM0,26h1v1h-1zM2,26h1v1h-1zM3,26h1v1h-1zM4,26h1v1h-1zM6,26h1v1h-1zM9,26h1v1h-1zM10,26h1v1h-1zM13,26h1v1h-1zM15,26h1v1h-1zM16,26h1v1h-1zM18,26h1v1h-1zM21,26h1v1h-1zM22,26h1v1h-1zM23,26h1v1h-1zM24,26h1v1h-1zM25,26h1v1h-1zM26,26h1v1h-1zM27,26h1v1h-1zM0,27h1v1h-1zM6,27h1v1h-1zM9,27h1v1h-1zM10,27h1v1h-1zM11,27h1v1h-1zM12,27h1v1h-1zM15,27h1v1h-1zM19,27h1v1h-1zM21,27h1v1h-1zM23,27h1v1h-1zM24,27h1v1h-1zM25,27h1v1h-1zM26,27h1v1h-1zM28,27h1v1h-1zM0,28h1v1h-1zM1,28h1v1h-1zM2,28h1v1h-1zM3,28h1v1h-1zM4,28h1v1h-1zM5,28h1v1h-1zM6,28h1v1h-1zM8,28h1v1h-1zM9,28h1v1h-1zM10,28h1v1h-1zM12,28h1v1h-1zM14,28h1v1h-1zM17,28h1v1h-1zM19,28h1v1h-1zM21,28h1v1h-1zM22,28h1v1h-1zM25,28h1v1h-1zM26,28h1v1h-1z" fill="currentColor"/></svg></div><div><b>yulinhenryou.github.io/undertone</b><p class="small" style="margin-top:8px">Scroll the watch, drag the side wheel, or press ↑ and ↓. Sound on.</p><div class="btns web" style="margin-top:16px"><a class="btn" href="play/">Play the prototype</a></div></div></div>
+    </div>
+    <div class="wr rv"><div data-s="duet" data-device="1" data-light="1" data-band="#F2557F"></div></div>
+    <div class="notes">
+      <div><p class="mono">Credits</p><p class="small">Research, interaction and visual design, prototyping and testing by Henry Ou. Test participants are anonymised as P1–P3.</p></div>
+      <div><p class="mono">Tools and AI</p><p class="small">The design is mine. Claude helped with critique, editing, and building this site, the film and the prototype to my direction; Codex gave design reviews. The photographic karaoke scene is AI-generated.</p></div>
+      <div><p class="mono">Type</p><p class="small">Geist, Geist Mono and Instrument Serif. Inter on the watch, standing in for SF Compact. All under the SIL Open Font License.</p></div>
+      <div><p class="mono">Notes</p><p class="small">Device frames are drawn in SVG, not Apple product images. Apple Watch is a trademark of Apple Inc. The song in the prototype is original.</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot lt">
+  <span>Undertone · Interface design by Henry Ou · 2026</span>
+  <a href="play/">Play the prototype →</a>
+</footer>
+
+<script src="assets/watchkit.js"></script>
+<script src="assets/story.js"></script>
+</body>
+</html>

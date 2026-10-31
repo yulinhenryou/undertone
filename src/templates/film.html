@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Undertone · film</title>
+<link rel="stylesheet" href="../../docs/assets/fonts.css">
+<style>
+/* A 34-second film, rendered frame by frame: render(t) sets the whole scene for time t. */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#F4F1EA}
+#f{position:relative;width:1280px;height:720px;overflow:hidden;background:#F4F1EA;color:#16141A;font-family:Geist,Inter,sans-serif;-webkit-font-smoothing:antialiased}
+.l{position:absolute;inset:0}
+#bg{position:absolute;inset:0}
+.mono{font:500 12px/1 'Geist Mono';letter-spacing:.12em;text-transform:uppercase;color:#7E7885}
+/* scene 1 */
+#s1 .ky{position:absolute;left:0;right:0;top:300px;text-align:center;font:400 128px/1 'Instrument Serif';letter-spacing:-.02em;white-space:nowrap}
+#s1 .ky span{color:rgba(22,20,26,.18)}#s1 .ky span.on{color:#E07B00}
+#s1 .ball{position:absolute;top:262px;width:18px;height:18px;border-radius:50%;background:#F59F00;box-shadow:0 0 18px rgba(245,159,0,.6)}
+#s1 .mono{position:absolute;left:0;right:0;top:240px;text-align:center}
+/* scene 2 */
+#s2 .t{position:absolute;left:0;right:0;top:250px;text-align:center;font-size:150px;line-height:1;letter-spacing:-.055em}
+#s2 .s{position:absolute;left:0;right:0;top:432px;text-align:center;font:400 40px/1 'Instrument Serif';font-style:italic;color:#4A4650}
+#s2 .s b{font-weight:400;color:#E07B00}
+/* scene 3 */
+#cap{position:absolute;left:76px;top:262px;width:380px}
+#cap .c{font:400 54px/1.02 'Instrument Serif';font-style:italic;letter-spacing:-.01em}
+#cap .d{font:400 19px/1.45 Geist;color:#4A4650;margin-top:16px}
+#cap .mono{margin-bottom:22px;color:#E07B00}
+#w{position:absolute;left:512px;top:156px;filter:drop-shadow(0 30px 40px rgba(40,20,60,.2))}
+#arc{position:absolute;left:820px;top:190px}
+#list{position:absolute;left:936px;top:196px;width:290px}
+#list .r{position:relative;height:82px;display:flex;flex-direction:column;justify-content:center;padding-left:34px}
+#list .r b{font-size:40px;line-height:1;letter-spacing:-.04em;display:block}
+#list .r span{font:500 11.5px/1 'Geist Mono';letter-spacing:.1em;color:#7E7885;margin-top:9px;display:block}
+#track{position:absolute;left:8px;top:41px;width:2px;height:246px;background:#DDD7CE;border-radius:1px}
+#knob{position:absolute;left:1px;width:16px;height:16px;margin-top:-8px;border-radius:50%;background:#16141A;box-shadow:0 0 0 4px #F4F1EA}
+#lyr{position:absolute;left:0;right:0;top:662px;text-align:center;font:400 30px/1 'Instrument Serif';white-space:nowrap}
+#lyr .b{color:rgba(22,20,26,.2)}
+#lyr .w{position:relative;display:inline-block}
+#lyr .lit{position:absolute;left:0;top:0;overflow:hidden;white-space:nowrap;color:#E07B00}
+/* scene 4 */
+#s4 .t{position:absolute;left:0;right:0;top:250px;text-align:center;font:620 82px/1 Geist;letter-spacing:-.05em}
+#s4 .t span{color:#E8590C;font-weight:860}
+#s4 .s{position:absolute;left:0;right:0;top:372px;text-align:center;font:400 30px/1 'Instrument Serif';font-style:italic;color:#4A4650}
+#s4 .u{position:absolute;left:0;right:0;top:470px;text-align:center}
+</style></head>
+<body>
+<div id="f">
+  <div id="bg"></div>
+  <div class="l" id="s1"><p class="mono">Karaoke · Room 7</p><p class="ky" id="ky">“You sing next!”</p><i class="ball" id="ball"></i></div>
+  <div class="l" id="s2"><p class="t" id="tt">Undertone</p><p class="s">Join the chorus, <b>a little at a time.</b></p></div>
+  <div class="l" id="s3">
+    <div id="cap"><p class="mono" id="capk"></p><p class="c" id="capc"></p><p class="d" id="capd"></p></div>
+    <div id="w" data-s="listening" data-device="1" data-light="1" data-band="#8EC5F5" style="--w:262px"></div>
+    <svg id="arc" width="60" height="120" viewBox="0 0 60 120" fill="none" stroke="#E07B00" stroke-width="3" stroke-linecap="round"><path d="M14 92a46 46 0 0 0 0-64"/><path d="M5 34l9-8 4 11"/></svg>
+    <div id="list"><i id="track"></i><i id="knob"></i></div>
+    <p id="lyr"></p>
+  </div>
+  <div class="l" id="s4"><p class="t">Only you can turn yourself <span>up.</span></p><p class="s">Undertone, an Apple Watch interface by Henry Ou</p><p class="u mono">yulinhenryou.github.io/undertone</p></div>
+</div>
+<script src="../../docs/assets/watchkit.js"></script>
+<script>
+const LV=[{n:'Listening',d:'MIC OFF',c:'#8EC5F5',t:'#1C7ED6',w:220,i:.16},{n:'Undertone',d:'≈ −18 dB · SOFTLY',c:'#FFB547',t:'#E07B00',w:460,i:.3},{n:'Harmony',d:'≈ −8 dB · CLEARLY',c:'#FF8F5A',t:'#E8590C',w:640,i:.36},{n:'Duet',d:'≈ 0 dB · WITH THE LEAD',c:'#F2557F',t:'#D6336C',w:860,i:.42}];
+const $=id=>document.getElementById(id);
+const sm=(a,b,x)=>{x=Math.min(1,Math.max(0,(x-a)/(b-a)));return x*x*(3-2*x)};
+const hex=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+const mix=(a,b,k)=>{const A=hex(a),B=hex(b);return 'rgb('+A.map((v,i)=>Math.round(v+(B[i]-v)*k)).join(',')+')'};
+/* level list, top = Duet */
+const list=$('list');
+[3,2,1,0].forEach(k=>{const r=document.createElement('div');r.className='r';r.id='r'+k;r.innerHTML=`<b style="font-weight:${LV[k].w}">${LV[k].n}</b><span>${LV[k].d}</span>`;list.appendChild(r)});
+/* karaoke title */
+const ky=$('ky'),kc=[...ky.textContent];ky.innerHTML=kc.map(c=>`<span>${c}</span>`).join('');
+const tt=$('tt'),tc=[...tt.textContent];tt.innerHTML=tc.map(c=>`<span>${c}</span>`).join('');
+const LYR=['Lanterns on the water','light the long way home,','every voice is softer','when it isn’t alone.'];
+/* the story beats of scene 3: [time, level, noise, caption key, caption, detail] */
+const BEATS=[
+ [8.6,0,0,'Listening','Your mic is off.','You’re in the room, just listening. That counts too.'],
+ [11.6,1,0,'One turn','Undertone.','Your voice slips into the chorus, softly, well under the lead.'],
+ [15.0,2,0,'Two turns','Harmony.','Clearer now, still under the lead.'],
+ [18.4,3,0,'Three turns','Duet.','Side by side with the lead. Level with her, never above.'],
+ [22.4,1,1,'The room gets loud','Held at Undertone.','The room can turn you down. It can never turn you up.'],
+ [26.6,0,0,'Turn back down','Back to listening.','Any time, in one move. Every step is reversible.']];
+let shown=null;
+function beatAt(t){let b=BEATS[0];for(const x of BEATS) if(t>=x[0]) b=x;return b}
+function render(t){
+  const o1=sm(0.1,0.6,t)*(1-sm(3.9,4.5,t)), o2=sm(4.6,5.2,t)*(1-sm(8.0,8.5,t)), o3=sm(8.5,9.1,t)*(1-sm(29.6,30.2,t)), o4=sm(30.3,31.0,t);
+  $('s1').style.opacity=o1;$('s2').style.opacity=o2;$('s3').style.opacity=o3;$('s4').style.opacity=o4;
+  /* 1 · karaoke line */
+  const sp=ky.children, lit=Math.round(sm(0.8,3.2,t)*sp.length);
+  for(let i=0;i<sp.length;i++) sp[i].className=i<lit?'on':'';
+  const at=sp[Math.max(0,lit-1)].getBoundingClientRect(), fr=$('f').getBoundingClientRect();
+  $('ball').style.left=(at.left-fr.left+at.width/2-9)+'px';$('ball').style.transform=`translateY(${-Math.abs(Math.sin(t*7))*14}px)`;$('ball').style.opacity=lit?1:0;
+  /* 2 · the word turns up */
+  const ramp=sm(5.2,7.0,t);
+  [...tt.children].forEach((s,i)=>{const n=tc.length-1;s.style.fontWeight=Math.round(160+ramp*720*(i/n))});
+  $('s2').querySelector('.s').style.opacity=sm(6.6,7.2,t);
+  /* 3 · the turning */
+  const b=beatAt(t), k=b[1], prev=BEATS[Math.max(0,BEATS.indexOf(b)-1)][1], since=t-b[0], e=sm(0,.7,since);
+  const key=k+'-'+b[2];
+  if(key!==shown){const w=$('w');w.dataset.s=b[2]?'noise':['listening','undertone','harmony','duet'][k];w.dataset.band=LV[k].c;WatchKit.render(w);shown=key}
+  $('capk').textContent=b[3];$('capc').textContent=b[4];$('capd').textContent=b[5];
+  $('cap').style.opacity=sm(0,.45,since);$('cap').style.transform=`translateY(${(1-sm(0,.45,since))*10}px)`;
+  const col=mix(LV[prev].c,LV[k].c,e), inten=LV[prev].i+(LV[k].i-LV[prev].i)*e;
+  $('bg').style.background=`radial-gradient(640px 520px at 668px 360px, ${col.replace('rgb','rgba').replace(')',','+(inten*1.6*o3).toFixed(3)+')')}, rgba(0,0,0,0) 70%)`;
+  const turned=b!==BEATS[0]&&b[1]!==prev&&!b[2]&&since<0.9;
+  $('arc').style.opacity=turned?(1-sm(.4,.9,since)):0;$('arc').style.transform=`translateY(${(k<prev?1:-1)*sm(0,.6,since)*-14}px) scaleY(${k<prev?-1:1})`;
+  [0,1,2,3].forEach(j=>{const r=$('r'+j),on=j===k;r.style.opacity=on?1:.28;r.querySelector('b').style.color=on?LV[j].t:'#16141A'});
+  const pos=y=>41+ (3-y)*82; const ky0=pos(prev),ky1=pos(k);
+  $('knob').style.top=(ky0+(ky1-ky0)*e)+'px';$('knob').style.background=mix(LV[prev].t,LV[k].t,e);
+  /* lyrics, on the song's grid */
+  const ls=(t-8.6)/4.2, li=((Math.floor(ls)%4)+4)%4, lp=ls-Math.floor(ls);
+  $('lyr').innerHTML=`<span class="w"><span class="b">${LYR[li]}</span><span class="lit" style="width:${(Math.min(1,lp/0.85)*100).toFixed(1)}%">${LYR[li]}</span></span>`;
+}
+window.render=render;
+/* ?poster: the same scene without words, for the video poster and the PDF cover */
+if(/[?&]poster\b/.test(location.search)) document.head.insertAdjacentHTML('beforeend','<style>#cap,#list,#lyr,#arc{display:none!important}</style>');
+</script>
+</body></html>
